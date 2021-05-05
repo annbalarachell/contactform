@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="antialiased text-gray-900 flex flex-col min-h-screen bg-gray-200">
     <div class="felx-shrink-0 mt-1">
-      <ul class="flex flex-row-reverse p-1 text-sm">
+      <ul class="flex flex-row-reverse p-2 text-sm">
         
         <li class="mr-20">
           <div class="flex items-center justify-center">
@@ -9,7 +9,7 @@
               <div v-if="open" @click="open = false" class="fixed inset-0"></div>
               <button @click="open = !open" class="relative flex items-center focus:outline-none">
                 <img src="https://github.com/adamwathan.png" alt="Adam Wathan's avatar" class="rounded-full h-8 w-8">
-                <span class="ml-2 font-medium">Adam Wathan</span>
+                <span class="ml-2 font-medium">Denmark</span>
                 <svg class="ml-1 h-5 w-5 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/>
                 </svg>
@@ -39,10 +39,11 @@
             </div>
           </div>
         </li>
-        <li class="mr-20"><a href="#" class="text-gray-700">News</a></li>
-        <li class="mr-20"><a href="#" class="text-gray-700">Get Help</a></li>
-        <li class="mr-20"><a href="#" class="text-gray-700">Dealer</a></li>
-        <li class="mr-20"><a href="#" class="text-gray-700">About Us</a></li>
+        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">Technies guied</a></li>
+        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">News</a></li>
+        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">Get Help</a></li>
+        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">Dealer</a></li>
+        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">About Us</a></li>
 
       </ul>
     </div>
@@ -226,10 +227,10 @@
       <div class="w-1/6 "></div>
       <div class="w-full border-t-2">
         <div class="flex flex-row">
-          <div class="w-1/2">
+          <div class="w-1/2 mt-5">
             <p class="text-white text-xs font-bold">Copyright © 2020 Tachines | all right reserved</p>
           </div>
-          <div class="w-1/2">
+          <div class="w-1/2 mt-5">
           <ul class="flex flex-row-reverse">
             <li class="text-white text-xs font-bold float-right ml-10">Cookie policy</li>
             <li class="text-white text-xs font-bold float-right">Terms & conditions</li>
@@ -251,6 +252,37 @@
   src: local('GTEestiProDisplay-Regular'), url(/assets/fonts/GTEestiProDisplay-Regular.ttf) format('ttf');
 }
 @tailwind utilities;
+.origin-top-right {
+  transform-origin: top right;
+}
+.transition-all {
+  transition-property: all;
+}
+.transition-fastest {
+  transition-duration: 50ms;
+}
+.transition-faster {
+  transition-duration: 100ms;
+}
+.transition-fast {
+  transition-duration: 150ms;
+}
+.transition-medium {
+  transition-duration: 200ms;
+}
+.ease-out-quad {
+  transition-timing-function: cubic-bezier(.25, .46, .45, .94);
+}
+.ease-in-quad {
+  transition-timing-function: cubic-bezier(.55, .085, .68, .53);
+}
+.scale-70 {
+  transform: scale(.7);
+}
+.scale-100 {
+  transform: scale(1);
+}
+
 
 
 </style>
