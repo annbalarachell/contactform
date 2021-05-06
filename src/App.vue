@@ -1,53 +1,102 @@
 <template>
   <div id="app" class="antialiased text-gray-900 flex flex-col min-h-screen bg-gray-200">
-    <div class="felx-shrink-0 mt-1">
-      <ul class="flex flex-row-reverse p-2 text-sm">
-        
-        <li class="mr-20">
-          <div class="flex items-center justify-center">
-            <div class="relative">
-              <div v-if="open" @click="open = false" class="fixed inset-0"></div>
-              <button @click="open = !open" class="relative flex items-center focus:outline-none">
-                <img src="https://github.com/adamwathan.png" alt="Adam Wathan's avatar" class="rounded-full h-8 w-8">
-                <span class="ml-2 font-medium">Denmark</span>
-                <svg class="ml-1 h-5 w-5 fill-current text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/>
-                </svg>
-              </button>
-              <transition
-                enter-active-class="transition-all transition-fastest ease-out-quad"
-                leave-active-class="transition-all transition-faster ease-in-quad"
-                enter-class="opacity-0 scale-70"
-                enter-to-class="opacity-100 scale-100"
-                leave-class="opacity-100 scale-100"
-                leave-to-class="opacity-0 scale-70"
-              >
-                <div v-if="open" class="origin-top-right absolute right-0 mt-2 w-64 bg-white rounded-lg border shadow-md py-2">
-                  <ul>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-indigo-500 hover:text-white">Profile</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-indigo-500 hover:text-white">Account settings</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-indigo-500 hover:text-white">Sign out</a>
-                    </li>
-                  </ul>
-                </div>
-              </transition>
-            </div>
-          </div>
-        </li>
-        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">Technies guied</a></li>
-        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">News</a></li>
-        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">Get Help</a></li>
-        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">Dealer</a></li>
-        <li class="mr-20 mt-1"><a href="#" class="font-medium text-gray-700">About Us</a></li>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+<nav class="bg-blue-50  ">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
 
-      </ul>
+            Heroicon name: outline/menu
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!--
+            Icon when menu is open.
+
+            Heroicon name: outline/x
+
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 flex items-center justify-end sm:items-stretch sm:justify-end">
+        
+        <div class="hidden sm:block sm:ml-6">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="text-gray-700 px-3 py-2 rounded-md text-sm font-medium" aria-current="page">About Us</a>
+
+            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dealer</a>
+
+            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Get Help</a>
+
+            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">News</a>
+            <a href="#" class="text-gray-700 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Technies guied  </a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+        <!-- Profile dropdown -->
+        <div class="ml-3 relative">
+          <div>
+            <button type="button" class=" flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            </button>
+          </div>
+
+          <!--
+            Dropdown menu, show/hide based on menu state.
+
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <!-- Active: "bg-gray-100", Not Active: "" -->
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex items-center justify-between p-4 bg-white">
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-900 hover:bg-gray-700 hover:text-white" -->
+      <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">About Us</a>
+
+      <a href="#" class="text-gray-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dealer</a>
+
+      <a href="#" class="text-gray-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Get Help</a>
+
+      <a href="#" class="text-gray-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">News</a>
+       <a href="#" class="text-gray-900 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Technies guied</a>
+    </div>
+  </div>
+</nav>
+
+
+    
+    <div class="flex items-center justify-between p-4 bg-white logo-header">
       <div class="w-1/5 logo px-10">
           <a href="#">
             <svg width="150" height="50" viewBox="0 0 800 185" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,8 +114,8 @@
             <path d="M609.018 32.8822H620.909V44.7065H620.842L611.608 54.0065V42.1158H599.784L609.018 32.8822Z" fill="#0043EC"/></svg>
             </a>
       </div>
-      <div class="w-4/5 flex flex-row mr-5 pl-1">
-          <input class="rounded-none bg-white border-black border-solid border-2 px-5 font-bold w-3/5 h-12" placeholder="What are you looking for ?" />
+      <div class="w-4/5 flex flex-row mr-5 pl-1 btn-logo-header">
+          <input class="rounded-none bg-white border-black border-solid border-2 px-5 font-bold w-3/5 h-12 width-full-mobile" placeholder="What are you looking for ?" />
           <button class="bg-gray-800 text-xs hover:bg-gray-900 text-white py-3 font-bold h-12 -ml-2 mr-4 inline-flex items-center">
               <svg class="fill-current mt-8"  width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.1562 0H16.5996V8.39623H16.5524L9.99583 15V6.5566H1.59961L8.1562 0Z" fill="#CBD0DA"/>
@@ -75,7 +124,7 @@
               <span class="m-3 mr-4">Search</span>
             </button>
 
-            <button class="bg-blue-300 text-xs hover:bg-gray-900 text-white py-1 font-bold h-12 -ml-2 mr-4 inline-flex items-center">
+            <button class="bg-blue-300 text-xs hover:bg-gray-900 text-white py-1 font-bold h-12 -ml-2 mr-4 inline-flex items-center display-mobile-view">
               <svg class="fill-current mt-8"  width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.1562 0H16.5996V8.39623H16.5524L9.99583 15V6.5566H1.59961L8.1562 0Z" fill="#043ED6"/>
               <rect y="6.5" width="10" height="10" fill="white"/>
@@ -83,7 +132,7 @@
               <span class="m-3 mr-4">Become Dealer</span>
             </button>
 
-            <button class="bg-blue-900 text-xs hover:bg-gray-900 text-white py-3 font-bold h-12 -ml-2 inline-flex items-center">
+            <button class="bg-blue-900 text-xs hover:bg-gray-900 text-white py-3 font-bold h-12 -ml-2 inline-flex items-center display-mobile-view">
               <svg class="fill-current mt-8" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8.1562 0H16.5996V8.39623H16.5524L9.99583 15V6.5566H1.59961L8.1562 0Z" fill="#6CC1FF"/>
               <rect y="6.5" width="10" height="10" fill="white"/>
@@ -93,7 +142,7 @@
           </div>
       </div>
 
-    <div class="p-2">
+    <div class="p-2 middle-part-main">
       <div class="flex flex-row p-3">
         <div class="m-3 w-1/6">
             <div class="bg-blue-100 h-48 m-2 rounded"></div>
@@ -119,7 +168,7 @@
       </div>
     </div>
     
-    <div class="flex flex-row p-4" style="background:#131E35">
+    <div class="flex flex-row p-4 footer-part" style="background:#131E35">
       <div class="w-3/5 flex flex-row pl-8 pt-8">
         <div class="w-1/5 ">
         </div>
@@ -222,7 +271,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-row p-4" style="background:#131E35">
+    <div class="flex flex-row p-4 footer-part" style="background:#131E35">
 
       <div class="w-1/6 "></div>
       <div class="w-full border-t-2">
@@ -282,6 +331,95 @@
 .scale-100 {
   transform: scale(1);
 }
+
+
+@media (max-width: 640px) {
+  
+}
+
+@media (max-width: 768px) {
+  .middle-part-main .w-3\/5 {
+      width: 100%;
+  }
+  .middle-part-main .w-1\/2 {
+    width: 80%;
+  }
+  .middle-part-main .h-24 {
+    height: auto;
+}
+.middle-part-main .w-1\/6 {
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+    display: none;
+}
+.middle-part-main .w-3\/5 .m-5.p-5 {
+  padding: 0px;
+  margin: 0px;
+}
+.logo-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.logo-header .width-full-mobile {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-header .w-3\/5 {
+    width: 100%;
+    margin: 0px 0px 10px;
+}
+.btn-logo-header {
+    display: block;
+    width: 100%;
+}
+.logo-header button {
+  margin: 0px 0px 15px !important;
+  width: 100%;
+
+}
+.footer-part {
+    display: block;
+}
+.footer-part .w-3\/5 {
+    width: 100%;
+    padding: 0px;
+}
+.footer-part .w-3\/5 {
+    width: 100%;
+    padding: 0px;
+    DISPLAY: BLOCK;
+}
+.footer-part .w-2\/5 {
+    width: 100%;
+    PADDING: 20px 0px;
+}
+}
+
+@media (max-width: 1280px) {
+  .middle-part-main .w-3\/5 {
+      width: 100%;
+  }
+  .middle-part-main .w-1\/2 {
+    width: 80%;
+  }
+  .middle-part-main .h-24 {
+    height: auto;
+}
+.middle-part-main  .mr-20 {
+    margin-right: 2rem;
+}
+.logo-header .w-1\/5 {
+    width: 34%;
+    padding: 0px;
+}
+}
+
+
 
 
 
